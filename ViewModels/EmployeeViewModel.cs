@@ -10,8 +10,9 @@ namespace MMMMedia.ViewModels
     public class EmployeeViewModel
     {
 
-        [Required]
+
         public int EmployeeID { get; set; }
+        [Required]
         [MaxLength(8)]
         public string EmployeeNo { get; set; }
         [Required]

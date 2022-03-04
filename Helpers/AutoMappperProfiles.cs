@@ -12,7 +12,7 @@ namespace MMMMedia.Helpers
     {
         public AutoMappperProfiles()
         {
-            CreateMap<EmployeeViewModel, EmployeeMaster>();
+            CreateMap<EmployeeViewModel, EmployeeMaster>();                         
             CreateMap<EmployeeMaster, EmployeeViewModel>();
         }
     }
