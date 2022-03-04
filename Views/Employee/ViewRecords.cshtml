@@ -1,0 +1,50 @@
+﻿@model MMMMedia.ViewModels.EmployeeViewModel;
+@{
+    ViewData["Title"] = "View Records";
+}
+<div class="mb-2"><small><a asp-action="CreateEmployee">Add/Update Employee</a></small></div>
+@{
+    if (Model.EmployeeMasterData.Count() != 0)
+    {
+        <div class="overflow-auto">
+            <table id="snv-main-table" class="table table-bordered table-responsive-sm text-sm-center" style="overflow-x:hidden">
+                <thead>
+                    <tr class="table-secondary ">
+                        <th scope="col">
+                            EmployeeID
+                        </th>
+                        <th scope="col">
+                            EmployeeName
+                        </th>
+                        <th scope="col">
+                            Designation
+                        </th>
+                        <th scope="col">
+                            Email
+                        </th>
+                        <th scope="col">
+                            Mobile
+                        </th>
+                        <th scope="col">
+                            Address
+                        </th>
+                        <th scope="col">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                @{ @await Html.PartialAsync("Partial/_userTablePartial", Model) }
+            </table>
+        </div>
+    }
+    else
+    {
+        <div id="no-records-display">
+            No users available.
+        </div>
+    }
+}
+
+@section Scripts {
+    @*//<script src="~/js/viewRecords.js"></script>*@
+}

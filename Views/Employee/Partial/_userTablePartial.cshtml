@@ -1,0 +1,24 @@
+﻿@model MMMMedia.ViewModels.EmployeeViewModel
+<tbody id="snv-table-body" >
+    @{
+        var users = Model.EmployeeMasterData.ToArray();
+
+        for (int i = 0; i < users.Count(); i++)
+        {
+            var user = users[i];
+        
+            <tr class=@(i % 2 == 0 ? "" : "table-secondary")>
+                <td scope="col">@(user.EmployeeID)</td>
+                <td scope="col">@user.EmployeeName</td>
+                <td scope="col">@user.Designation.DesignationName</td>
+                <td scope="col">@user.Email</td>
+                <td scope="col">@user.Mobile</td>
+                <td scope="col">@user.Address</td>                          
+                <td scope="col">
+                    <a href="@Url.Action("GetRecord", "Employee",new { userId = user.EmployeeID})"><img src="~/Images/pencil-square.svg" /></a>
+                    <a href="@Url.Action("RemoveRecord", "Employee",new { userId = user.EmployeeID})"><img src="~/Images/trash3.svg" /></a>
+                </td>
+            </tr>
+        }
+    }
+</tbody>
